@@ -15,7 +15,7 @@ This app is based on the Google BigQuery app tutorial [Create A Simple Applicati
 
 ### Include Google Cloud Credential
 
-Follow instructions on Google Cloud Platform to get application credential [application default credentials]https://cloud.google.com/docs/authentication/getting-started
+Follow instructions on Google Cloud Platform to get application credential [application default credentials](https://cloud.google.com/docs/authentication/getting-started)
 
 ### Start Express Server
 
