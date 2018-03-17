@@ -1,0 +1,23 @@
+{
+  "name": "node-bigquery",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "PORT=3001 node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5",
+    "@google-cloud/bigquery": "1.0.0",
+    "@google-cloud/storage": "1.5.1"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "2.1.3"
+  }
+}
