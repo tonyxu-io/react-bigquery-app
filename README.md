@@ -19,13 +19,16 @@ Follow instructions on Google Cloud Platform to get application credential [appl
 
 ### Start Express Server
 
+node-bigquery:
+
 ```
-// /node-bigquery
 npm start
 ```
 
 ### Start React Client
 
-// /Node-bigquery/client
+node-bigquery/client:
+
+```
 npm start
 ```
