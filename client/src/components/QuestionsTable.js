@@ -37,6 +37,7 @@ const QuestionsTable = (props) => {
     <Table>
     <TableHeader
     displaySelectAll = {false}
+    adjustForCheckbox = {false}
     >
       <TableRow>
         <TableHeaderColumn>Title</TableHeaderColumn>

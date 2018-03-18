@@ -4,32 +4,70 @@ require('dotenv').config();
 const BigQuery = require('@google-cloud/bigquery');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  queryStackOverflow('nodejs-bigquery')
+router.get('/:query_id', function(req, res, next) {
+  queryStackOverflow('nodejs-bigquery',req.params.query_id)
   .then((result) => res.send(result))
 });
 
-function queryStackOverflow(projectId) {
+function queryStackOverflow(projectId,query_id) {
 
   // Creates a client
   const bigquery = new BigQuery({
     projectId: projectId,
   });
 
-  // The SQL query to run
-  const sqlQuery = `SELECT
-    id,
-    CONCAT(
-      'https://stackoverflow.com/questions/',
-      CAST(id as STRING)) as url,
-    view_count,
-    title,
-    creation_date,
-    answer_count
-    FROM \`bigquery-public-data.stackoverflow.posts_questions\`
-    WHERE tags like '%google-bigquery%'
-    ORDER BY view_count DESC
-    LIMIT 10`;
+  var sqlQuery
+
+  console.log('query_id:',query_id)
+
+  switch(query_id){
+    case '1':
+      // The SQL query to run
+      sqlQuery = `SELECT
+      id,
+      CONCAT(
+        'https://stackoverflow.com/questions/',
+        CAST(id as STRING)) as url,
+      view_count,
+      title,
+      creation_date,
+      answer_count
+      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
+      ORDER BY view_count DESC
+      LIMIT 10`;
+      break;
+    case '2':
+      // The SQL query to run
+      sqlQuery = `SELECT
+      id,
+      CONCAT(
+        'https://stackoverflow.com/questions/',
+        CAST(id as STRING)) as url,
+      view_count,
+      title,
+      creation_date,
+      answer_count
+      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
+      ORDER BY creation_date DESC
+      LIMIT 10`;
+      break;
+    case '3':
+      // The SQL query to run
+      sqlQuery = `SELECT
+      id,
+      CONCAT(
+        'https://stackoverflow.com/questions/',
+        CAST(id as STRING)) as url,
+      view_count,
+      title,
+      creation_date,
+      answer_count
+      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
+      ORDER BY answer_count DESC
+      LIMIT 10`;
+      break;
+  }
+  
 
   // Query options list: https://cloud.google.com/bigquery/docs/reference/v2/jobs/query
   const options = {
