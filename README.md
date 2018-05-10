@@ -6,7 +6,7 @@ This app is based on the Google BigQuery app tutorial [Create A Simple Applicati
 
 ## Demo
 
-![React-Bigquery-Demo](https://raw.githubusercontent.com/yihan-us/storage/master/react-bigquery-app.png)
+![React-Bigquery-Demo](https://raw.githubusercontent.com/tonyxu-io/storage/master/react-bigquery-app.png)
 
 Supported queries:
 
